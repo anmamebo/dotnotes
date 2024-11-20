@@ -38,7 +38,10 @@ exports.login = async (req, res) => {
       expiresIn: "1d",
     });
 
-    res.status(200).send({ token, user });
+    const userObj = user.toObject();
+    delete userObj.password;
+
+    res.status(200).send({ token, user: userObj });
   } catch (error) {
     res.status(500).send({ message: "Server error" });
   }
