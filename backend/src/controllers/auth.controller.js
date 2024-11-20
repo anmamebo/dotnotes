@@ -38,7 +38,7 @@ exports.login = async (req, res) => {
       expiresIn: "1d",
     });
 
-    res.status(200).send({ token });
+    res.status(200).send({ token, user });
   } catch (error) {
     res.status(500).send({ message: "Server error" });
   }
