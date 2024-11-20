@@ -43,3 +43,15 @@ exports.login = async (req, res) => {
     res.status(500).send({ message: "Server error" });
   }
 };
+
+exports.me = async (req, res) => {
+  try {
+    const user = await User.findById(req.userId);
+    if (!user) return res.status(404).send({ message: "User not found" });
+
+    const { password, ...userData } = user.toObject();
+    res.status(200).send(userData);
+  } catch (error) {
+    res.status(500).send({ message: "Server error" });
+  }
+};
