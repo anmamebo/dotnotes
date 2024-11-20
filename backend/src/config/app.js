@@ -11,7 +11,9 @@ app.use(cors()); // To allow requests from other origins
 
 // Routes
 const authRoutes = require("../routes/auth.routes");
+const noteRoutes = require("../routes/note.routes");
 
 app.use("/api/auth", authRoutes);
+app.use("/api/notes", noteRoutes);
 
 module.exports = app;
