@@ -46,7 +46,7 @@ const NewNoteForm = ({ setNotes, notes }) => {
         {/* Card Body */}
         <div className="relative flex-grow overflow-hidden">
           <textarea
-            className="w-full h-full resize-none border-b p-2"
+            className="w-full h-full resize-none border-b px-2"
             id="content"
             placeholder="Content"
             {...register("content", { required: true })}
