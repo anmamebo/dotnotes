@@ -21,7 +21,9 @@ exports.createNote = async (req, res) => {
 
 exports.getNotes = async (req, res) => {
   try {
-    const notes = await Note.find({ owner: req.userId });
+    const notes = await Note.find({ owner: req.userId }).sort({
+      createdAt: -1,
+    });
     res.status(200).send(notes);
   } catch (error) {
     res
