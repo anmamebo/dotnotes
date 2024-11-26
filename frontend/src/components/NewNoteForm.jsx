@@ -66,6 +66,8 @@ const NewNoteForm = ({ setNotes, notes }) => {
           <button
             type="submit"
             className="px-4 py-2 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded"
+            aria-label="Create"
+            title="Create"
           >
             Create
           </button>

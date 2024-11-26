@@ -23,8 +23,8 @@ const Header = () => {
               <button
                 onClick={handleLogout}
                 className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded"
-                aria-label="Sign out"
-                title="Sign out"
+                aria-label="Sign Out"
+                title="Sign Out"
               >
                 Sign Out
               </button>

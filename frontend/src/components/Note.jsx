@@ -38,10 +38,18 @@ const Note = ({ id, title, content, createdAt, onEdit, onDelete }) => {
 
             {/* Note actions */}
             <div className="flex gap-4 text-gray-500">
-              <button onClick={handleEditClick}>
+              <button
+                onClick={handleEditClick}
+                aria-label="Edit Note"
+                title="Edit Note"
+              >
                 <PencilIcon />
               </button>
-              <button onClick={handleDeleteClick}>
+              <button
+                onClick={handleDeleteClick}
+                aria-label="Delete Note"
+                title="Delete Note"
+              >
                 <TrashIcon />
               </button>
             </div>
@@ -69,6 +77,8 @@ const Note = ({ id, title, content, createdAt, onEdit, onDelete }) => {
           <button
             onClick={handleConfirmEdit}
             className="px-4 py-2 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded"
+            aria-label="Save"
+            title="Save"
           >
             Save
           </button>
