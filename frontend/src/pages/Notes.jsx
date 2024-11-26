@@ -20,6 +20,30 @@ const Notes = () => {
     fetchNotes();
   }, []);
 
+  const handleEditNote = async (id, updatedNote) => {
+    try {
+      const res = await axios.put(`/notes/${id}`, updatedNote);
+      setNotes(
+        notes.map((note) =>
+          note._id === id ? { ...note, ...updatedNote } : note
+        )
+      );
+      console.log(res.data.message);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleDeleteNote = async (id) => {
+    try {
+      const res = await axios.delete(`/notes/${id}`);
+      setNotes(notes.filter((note) => note._id !== id));
+      console.log(res.data.message);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -38,9 +62,12 @@ const Notes = () => {
             {notes.map((note) => (
               <Note
                 key={note._id}
+                id={note._id}
                 title={note.title}
                 content={note.content}
                 createdAt={new Date(note.createdAt).toLocaleDateString()}
+                onEdit={handleEditNote}
+                onDelete={handleDeleteNote}
               />
             ))}
           </div>
