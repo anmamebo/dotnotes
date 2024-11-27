@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Navigate } from "react-router-dom";
 import axios from "../config/axios";
 import AuthContext from "../context/AuthContext";
 
@@ -9,7 +10,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { login } = useContext(AuthContext);
+  const { login, token } = useContext(AuthContext);
   const [message, setMessage] = useState("");
 
   const onSubmit = async (data) => {
@@ -24,6 +25,10 @@ const Login = () => {
       }, 3000);
     }
   };
+
+  if (token) {
+    return <Navigate to="/notes" replace />;
+  }
 
   return (
     <>

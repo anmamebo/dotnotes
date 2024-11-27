@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Navigate } from "react-router-dom";
 import axios from "../config/axios";
+import AuthContext from "../context/AuthContext";
 
 const Register = () => {
   const {
@@ -11,6 +13,7 @@ const Register = () => {
   } = useForm();
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
+  const { token } = useContext(AuthContext);
 
   const onSubmit = async (data) => {
     try {
@@ -33,6 +36,10 @@ const Register = () => {
       }, 3000);
     }
   };
+
+  if (token) {
+    return <Navigate to="/notes" replace />;
+  }
 
   return (
     <>
