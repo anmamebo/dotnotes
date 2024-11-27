@@ -25,7 +25,7 @@ const Note = ({ id, title, content, createdAt, onEdit, onDelete }) => {
   return (
     <div className="flex flex-col gap-2 bg-white rounded-md p-4 shadow-md h-[200px]">
       {/* Card Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-2">
         {/* Note title */}
         {isEditing ? (
           <input
