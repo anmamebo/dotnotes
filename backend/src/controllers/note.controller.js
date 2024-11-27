@@ -1,3 +1,4 @@
+const i18n = require("../config/i18n");
 const Note = require("../models/note.model");
 
 exports.createNote = async (req, res) => {
@@ -11,11 +12,11 @@ exports.createNote = async (req, res) => {
     });
 
     await note.save();
-    res.status(201).send({ message: "Note created successfully", note });
+    res.status(201).send({ message: i18n.t("noteCreatedSuccessfully"), note });
   } catch (error) {
     res
       .status(500)
-      .send({ message: "Error creating note", error: error.message });
+      .send({ message: i18n.t("errorCreatingNote"), error: error.message });
   }
 };
 
@@ -28,7 +29,7 @@ exports.getNotes = async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .send({ message: "Error getting notes", error: error.message });
+      .send({ message: i18n.t("errorGettingNotes"), error: error.message });
   }
 };
 
@@ -46,14 +47,14 @@ exports.updateNote = async (req, res) => {
     if (!note) {
       return res
         .status(404)
-        .send({ message: "Note not found or not authorized" });
+        .send({ message: i18n.t("noteNotFoundOrNotAuthorized") });
     }
 
-    res.status(200).send({ message: "Note updated successfully", note });
+    res.status(200).send({ message: i18n.t("noteUpdatedSuccessfully"), note });
   } catch (error) {
     res
       .status(500)
-      .send({ message: "Error updating note", error: error.message });
+      .send({ message: i18n.t("errorUpdatingNote"), error: error.message });
   }
 };
 
@@ -66,13 +67,13 @@ exports.deleteNote = async (req, res) => {
     if (!note) {
       return res
         .status(404)
-        .send({ message: "Note not found or not authorized" });
+        .send({ message: i18n.t("noteNotFoundOrNotAuthorized") });
     }
 
-    res.status(200).send({ message: "Note deleted successfully" });
+    res.status(200).send({ message: i18n.t("noteDeletedSuccessfully") });
   } catch (error) {
     res
       .status(500)
-      .send({ message: "Error deleting note", error: error.message });
+      .send({ message: i18n.t("errorDeletingNote"), error: error.message });
   }
 };

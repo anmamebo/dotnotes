@@ -1,0 +1,15 @@
+{
+  "emailInUse": "El correo electrónico ya está en uso",
+  "userRegistered": "Usuario registrado con éxito",
+  "serverError": "Error en el servidor",
+  "userNotFound": "Usuario no encontrado",
+  "invalidCredentials": "Credenciales inválidas",
+  "noteCreatedSuccessfully": "Nota creada correctamente",
+  "errorCreatingNote": "Error al crear la nota",
+  "errorGettingNotes": "Error al obtener las notas",
+  "noteNotFoundOrNotAuthorized": "Nota no encontrada o no autorizado",
+  "noteUpdatedSuccessfully": "Nota actualizada correctamente",
+  "errorUpdatingNote": "Error al actualizar la nota",
+  "noteDeletedSuccessfully": "Nota eliminada correctamente",
+  "errorDeletingNote": "Error al eliminar la nota"
+}

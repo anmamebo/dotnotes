@@ -1,0 +1,15 @@
+{
+  "emailInUse": "Email already in use",
+  "userRegistered": "User registered successfully",
+  "serverError": "Server error",
+  "userNotFound": "User not found",
+  "invalidCredentials": "Invalid credentials",
+  "noteCreatedSuccessfully": "Note created successfully",
+  "errorCreatingNote": "Error creating note",
+  "errorGettingNotes": "Error getting notes",
+  "noteNotFoundOrNotAuthorized": "Note not found or not authorized",
+  "noteUpdatedSuccessfully": "Note updated successfully",
+  "errorUpdatingNote": "Error updating note",
+  "noteDeletedSuccessfully": "Note deleted successfully",
+  "errorDeletingNote": "Error deleting note"
+}
