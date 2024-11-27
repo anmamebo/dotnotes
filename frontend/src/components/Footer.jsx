@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
       {/* Social media */}
@@ -54,7 +58,7 @@ const Footer = () => {
 
       {/* Signature */}
       <span className="text-gray-500">
-        Made by{" "}
+        {t("footer.madeBy")}{" "}
         <a
           href="https://github.com/anmamebo"
           target="_blank"

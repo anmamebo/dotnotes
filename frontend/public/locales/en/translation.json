@@ -1,0 +1,42 @@
+{
+  "welcomeMessage": "Welcome to DotNotes",
+  "welcome": "Welcome, {{name}}!",
+  "registerMessage": "Register for a new account",
+  "loginMessage": "Login to your account",
+  "register": "Register",
+  "login": "Log in",
+  "signout": "Sign out",
+  "form": {
+    "inputName": "Name",
+    "inputEmail": "Email",
+    "inputPassword": "Password",
+    "errors": {
+      "fieldRequired": "This field is required"
+    }
+  },
+  "haveAccount": "Already have an account?",
+  "noAccount": "Don't have an account?",
+  "languageSwitcher": {
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "notes": {
+    "yourNotes": "Your Notes",
+    "form": {
+      "inputTitle": "Title",
+      "inputContent": "Content",
+      "errors": {
+        "fieldRequired": "This field is required",
+        "noteTitleRequired": "Title is required",
+        "noteContentRequired": "Content is required"
+      },
+      "createButton": "Create",
+      "saveButton": "Save",
+      "editButton": "Edit Note",
+      "deleteButton": "Delete Note"
+    }
+  },
+  "footer": {
+    "madeBy": "Made by"
+  }
+}

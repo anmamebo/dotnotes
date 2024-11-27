@@ -1,10 +1,13 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { Navigate } from "react-router-dom";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 import axios from "../config/axios";
 import AuthContext from "../context/AuthContext";
 
 const Register = () => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -43,15 +46,13 @@ const Register = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex flex-col items-center justify-center min-h-screen">
         <div className="px-8 py-12 w-full sm:max-w-2xl lg:max-w-xl">
           <div className="mb-8">
             <h1 className="text-2xl font-semibold text-center">
-              Welcome to DotNotes
+              {t("welcomeMessage")}
             </h1>
-            <p className="text-gray-600 text-center">
-              Register for a new account
-            </p>
+            <p className="text-gray-600 text-center">{t("registerMessage")}</p>
           </div>
 
           <form
@@ -60,7 +61,9 @@ const Register = () => {
           >
             {/* Name Field */}
             <div className="flex flex-col">
-              <label className="text-md font-medium">Name</label>
+              <label className="text-md font-medium">
+                {t("form.inputName")}
+              </label>
               <input
                 type="text"
                 className="mt-1 border-b border-black p-2 bg-transparent"
@@ -69,14 +72,16 @@ const Register = () => {
               />
               {errors.name && (
                 <span className="text-red-500 text-sm">
-                  This field is required
+                  {t("form.errors.fieldRequired")}
                 </span>
               )}
             </div>
 
             {/* Email Field */}
             <div className="flex flex-col">
-              <label className="text-md font-medium">Email</label>
+              <label className="text-md font-medium">
+                {t("form.inputEmail")}
+              </label>
               <input
                 type="email"
                 className="mt-1 border-b border-black p-2 bg-transparent"
@@ -85,14 +90,16 @@ const Register = () => {
               />
               {errors.email && (
                 <span className="text-red-500 text-sm">
-                  This field is required
+                  {t("form.errors.fieldRequired")}
                 </span>
               )}
             </div>
 
             {/* Password Field */}
             <div className="flex flex-col">
-              <label className="text-md font-medium">Password</label>
+              <label className="text-md font-medium">
+                {t("form.inputPassword")}
+              </label>
               <input
                 type="password"
                 className="mt-1 border-b border-black p-2 bg-transparent"
@@ -101,7 +108,7 @@ const Register = () => {
               />
               {errors.password && (
                 <span className="text-red-500 text-sm">
-                  This field is required
+                  {t("form.errors.fieldRequired")}
                 </span>
               )}
             </div>
@@ -122,18 +129,20 @@ const Register = () => {
               type="submit"
               className="mt-4 px-4 py-2 bg-black text-white border border-black rounded hover:bg-[#F5F5F5] hover:text-black w-full font-medium"
             >
-              Register
+              {t("register")}
             </button>
 
             {/* Login Link */}
             <p className="text-center">
-              Already have an account?{" "}
+              {t("haveAccount")}{" "}
               <a href="/login" className="font-medium">
-                Log in
+                {t("login")}
               </a>
             </p>
           </form>
         </div>
+
+        <LanguageSwitcher />
       </div>
     </>
   );

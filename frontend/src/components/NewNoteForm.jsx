@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import axios from "../config/axios";
 
 const NewNoteForm = ({ setNotes, notes }) => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -38,7 +40,7 @@ const NewNoteForm = ({ setNotes, notes }) => {
             type="text"
             className="font-semibold text-lg border-b w-full px-2"
             id="title"
-            placeholder="Title"
+            placeholder={t("notes.form.inputTitle")}
             {...register("title", { required: true })}
           />
         </div>
@@ -48,7 +50,7 @@ const NewNoteForm = ({ setNotes, notes }) => {
           <textarea
             className="w-full h-full resize-none border-b px-2"
             id="content"
-            placeholder="Content"
+            placeholder={t("notes.form.inputContent")}
             {...register("content", { required: true })}
           ></textarea>
         </div>
@@ -58,18 +60,22 @@ const NewNoteForm = ({ setNotes, notes }) => {
           {/* Error and Feedback Messages */}
           <div className="flex flex-col text-xs text-red-500">
             {message && <span className="text-green-500">{message}</span>}
-            {errors.title && <span>Title is required</span>}
-            {errors.content && <span>Content is required</span>}
+            {errors.title && (
+              <span>{t("notes.form.errors.noteTitleRequired")}</span>
+            )}
+            {errors.content && (
+              <span>{t("notes.form.errors.noteContentRequired")}</span>
+            )}
           </div>
 
           {/* Submit button */}
           <button
             type="submit"
             className="px-4 py-2 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded"
-            aria-label="Create"
-            title="Create"
+            aria-label={t("notes.form.createButton")}
+            title={t("notes.form.createButton")}
           >
-            Create
+            {t("notes.form.createButton")}
           </button>
         </div>
       </form>

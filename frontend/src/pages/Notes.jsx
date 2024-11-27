@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import NewNoteForm from "../components/NewNoteForm";
@@ -6,6 +7,7 @@ import Note from "../components/Note";
 import axios from "../config/axios";
 
 const Notes = () => {
+  const { t } = useTranslation();
   const [notes, setNotes] = useState([]);
   const [message, setMessage] = useState("");
 
@@ -71,7 +73,7 @@ const Notes = () => {
         <div className="flex flex-col gap-3">
           {/* Title */}
           <div className="flex items-center justify-between">
-            <h1 className="font-semibold text-2xl">Your notes</h1>
+            <h1 className="font-semibold text-2xl">{t("notes.yourNotes")}</h1>
 
             {/* Messages */}
             {message && (

@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import PencilIcon from "./Icons/PencilIcon";
 import TrashIcon from "./Icons/TrashIcon";
 
 const Note = ({ id, title, content, createdAt, onEdit, onDelete }) => {
+  const { t } = useTranslation();
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedContent, setEditedContent] = useState(content);
@@ -40,15 +42,15 @@ const Note = ({ id, title, content, createdAt, onEdit, onDelete }) => {
             <div className="flex gap-4 text-gray-500">
               <button
                 onClick={handleEditClick}
-                aria-label="Edit Note"
-                title="Edit Note"
+                aria-label={t("notes.form.editButton")}
+                title={t("notes.form.editButton")}
               >
                 <PencilIcon />
               </button>
               <button
                 onClick={handleDeleteClick}
-                aria-label="Delete Note"
-                title="Delete Note"
+                aria-label={t("notes.form.deleteButton")}
+                title={t("notes.form.deleteButton")}
               >
                 <TrashIcon />
               </button>
@@ -77,10 +79,10 @@ const Note = ({ id, title, content, createdAt, onEdit, onDelete }) => {
           <button
             onClick={handleConfirmEdit}
             className="px-4 py-2 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded"
-            aria-label="Save"
-            title="Save"
+            aria-label={t("notes.form.saveButton")}
+            title={t("notes.form.saveButton")}
           >
-            Save
+            {t("notes.form.saveButton")}
           </button>
         ) : (
           <>

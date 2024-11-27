@@ -1,7 +1,10 @@
 import { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import AuthContext from "../context/AuthContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {
+  const { t } = useTranslation();
   const { logout, user } = useContext(AuthContext);
 
   const handleLogout = () => {
@@ -17,8 +20,10 @@ const Header = () => {
 
             <div className="flex items-center gap-4">
               <span className="text-gray-500 hidden sm:block">
-                Welcome, {user?.name || "Guest"}!
+                {t("welcome", { name: user?.name })}
               </span>
+
+              <LanguageSwitcher />
 
               <button
                 onClick={handleLogout}
@@ -26,7 +31,7 @@ const Header = () => {
                 aria-label="Sign Out"
                 title="Sign Out"
               >
-                Sign Out
+                {t("signout")}
               </button>
             </div>
           </div>
