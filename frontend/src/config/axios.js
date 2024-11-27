@@ -11,6 +11,8 @@ instance.interceptors.request.use((config) => {
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+  config.headers["Accept-Language"] =
+    localStorage.getItem("i18nextLng") || "en"; // Change the language header
   return config;
 });
 
