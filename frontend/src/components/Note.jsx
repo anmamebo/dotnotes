@@ -78,7 +78,7 @@ const Note = ({ id, title, content, createdAt, onEdit, onDelete }) => {
         {isEditing ? (
           <button
             onClick={handleConfirmEdit}
-            className="px-4 py-2 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded"
+            className="px-4 py-2 text-sm bg-black hover:bg-transparent hover:text-black border border-black text-white rounded"
             aria-label={t("notes.form.saveButton")}
             title={t("notes.form.saveButton")}
           >
